@@ -4,6 +4,9 @@
 
 const { readFileSync, promises: fsPromises } = require('fs');
 
+
+/** Reads the file and retuns an array of the contents.
+ */
 function syncReadFile(filename) {
   const contents = readFileSync(filename, 'utf-8');
 
@@ -13,7 +16,9 @@ function syncReadFile(filename) {
   return contentsArray;
 }
 
-
+/** Counts calories per elf.
+ * Returns a new array with calories per elf.
+ */
 function countCalories(data) {
   const caloriesPerElf = [];
   let calorieCount = 0;
@@ -29,11 +34,11 @@ function countCalories(data) {
   return caloriesPerElf;
 }
 
+/** Finds max calories in a given array */
 function findMaxCalories(data) {
   const max = Math.max(...countCalories(data));
 
   console.log(max);
-
   return max;
 }
 
