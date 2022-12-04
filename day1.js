@@ -9,21 +9,23 @@ function syncReadFile(filename) {
 
   const contentsArray = contents.split(/\r?\n/);
 
-  console.log(contentsArray);
+  console.log("contentsArray: ", contentsArray);
   return contentsArray;
 }
+
 
 function countCalories(data) {
   const caloriesPerElf = [];
   let calorieCount = 0;
   for (let i = 0; i < data.length; i++) {
     if (!data[i]) {
-      caloriesPerElf.push(calorieCount);
+      caloriesPerElf.push(parseInt(calorieCount));
       calorieCount = 0;
     } else {
-      calorieCount += data[i];
+      calorieCount += parseInt(data[i]);
     }
   }
+  console.log("caloriesPerElf: ", caloriesPerElf);
   return caloriesPerElf;
 }
 
