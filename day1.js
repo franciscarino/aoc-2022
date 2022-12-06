@@ -73,7 +73,7 @@ function findTopThreeSum(data) {
 
 findTopThreeSum(caloriesPerElf);
 
-// topThreeSum = 204640
+// topThreeSum = 203203
 
 
 
