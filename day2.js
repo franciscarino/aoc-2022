@@ -57,18 +57,16 @@ function calculateTotalPlay(play) {
 
   const myHandScore = handScores[myHand];
 
-  console.log("Total Score: ", winLoseScore + myHandScore);
   return winLoseScore + myHandScore;
 }
-
 
 function calculateTotalScore(playData) {
   let totalScore = 0;
 
   for (let i = 0; i < playData.length; i++) {
-    totalScore += calculateTotalPlay[i];
+    totalScore += calculateTotalPlay(playData[i]);
   }
-  console.log(totalScore);
+  console.log("TOTAL SCORE: ", totalScore);
   return totalScore;
 }
 
