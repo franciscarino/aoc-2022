@@ -77,6 +77,55 @@ function calculateTotalScore(playData) {
 calculateTotalScore(contents);
 
 
+// PART 2
 
 
+// x = lose, y = draw, z = win
 
+function calculateHandScore(play) {
+  let opponentHand = play[0];
+  let outcome = play[2];
+
+  // A - rock
+  if (opponentHand === 'A' && outcome === 'X') return 3; // scissors
+  if (opponentHand === 'A' && outcome === 'Y') return 1; // rock
+  if (opponentHand === 'A' && outcome === 'Z') return 2; // paper
+
+  // B - paper
+  if (opponentHand === 'B' && outcome === 'X') return 1; // rock
+  if (opponentHand === 'B' && outcome === 'Y') return 2; // paper
+  if (opponentHand === 'B' && outcome === 'Z') return 3; // scissors
+
+  // C - scissors
+  if (opponentHand === 'C' && outcome === 'X') return 2; // paper
+  if (opponentHand === 'C' && outcome === 'Y') return 3; // scissors
+  if (opponentHand === 'C' && outcome === 'Z') return 1; // rock
+}
+
+const loseDrawWin = {
+  x: 0,
+  y: 3,
+  z: 6
+};
+
+/** Calculates total score adding win/lose score and hand score. */
+function calculateTotalPlayAgain(play) {
+  const handScore = calculateHandScore(play);
+  const winLoseScore = loseDrawWin[play[2].toLowerCase()];
+
+  return handScore + winLoseScore;
+}
+
+
+/** Calculates total score from all plays*/
+function calculateTotalScoreAgain(playData) {
+  let totalScore = 0;
+
+  for (let i = 0; i < playData.length; i++) {
+    totalScore += calculateTotalPlayAgain(playData[i]);
+  }
+  console.log("TOTAL SCORE AGAIN: ", totalScore);
+  return totalScore;
+}
+
+calculateTotalScoreAgain(contents);
