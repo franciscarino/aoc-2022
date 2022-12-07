@@ -30,6 +30,8 @@ const handScores = {
   z: 3
 };
 
+
+/** Calculates score for winning or losing against the opponent*/
 function calculateWinOrLoseScore(play) {
   let opponentHand = play[0];
   let myHand = play[2];
@@ -50,6 +52,7 @@ function calculateWinOrLoseScore(play) {
   if (opponentHand === 'C' && myHand === 'X') return 6;
 }
 
+/** Calculates total score adding win/lose score and hand score. */
 function calculateTotalPlay(play) {
   const winLoseScore = calculateWinOrLoseScore(play);
 
@@ -60,6 +63,7 @@ function calculateTotalPlay(play) {
   return winLoseScore + myHandScore;
 }
 
+/** Calculates total score from all plays*/
 function calculateTotalScore(playData) {
   let totalScore = 0;
 
